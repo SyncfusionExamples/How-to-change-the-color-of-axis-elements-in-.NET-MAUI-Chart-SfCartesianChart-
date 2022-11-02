@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace ChartAxisDemo
 {
 	public class Model
-    {
-        public Model(string xValue, double yValue)
-        {
-            XValue = xValue;
-            YValue = yValue;
-        }
+	{
+		public Model(string xValue, double yValue)
+		{
+			XValue = xValue;
+			YValue = yValue;
+		}
 
-        public string XValue { get; set; }
+		public string XValue { get; set; }
 
-        public double YValue { get; set; }
-    }
+		public double YValue { get; set; }
+	}
 }
