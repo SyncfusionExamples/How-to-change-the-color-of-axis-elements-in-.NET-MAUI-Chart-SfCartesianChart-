@@ -13,15 +13,17 @@ namespace ChartAxisDemo
 
 		public ViewModel()
 		{
-			Data = new ObservableCollection<Model>()
-			{
-				new Model("Naveen", 25000),
-				new Model("John", 15000),
-				new Model("James", 35000),
-				new Model("Magesh", 20000),
-				new Model("Karthi", 25000),
-				new Model("Ram", 17000),
-			};
+			Data = new ObservableCollection<Model>();
+			Data.Add(new Model() { Brand = "Adidas", ItemsCount = 416 });
+			Data.Add(new Model() { Brand = "Nike", ItemsCount = 520 });
+			Data.Add(new Model() { Brand = "Reebok", ItemsCount = 470 });
+			Data.Add(new Model() { Brand = "Fila", ItemsCount = 500 });
+			Data.Add(new Model() { Brand = "Puma", ItemsCount = 449 });
+			Data.Add(new Model() { Brand = "New Balance", ItemsCount = 360 });
+			Data.Add(new Model() { Brand = "Asics", ItemsCount = 437 });
+			Data.Add(new Model() { Brand = "Skechers", ItemsCount = 458 });
+			Data.Add(new Model() { Brand = "Bata", ItemsCount = 500 });
+			Data.Add(new Model() { Brand = "Burberry", ItemsCount = 473 });
 		}
 	}
 }

@@ -6,40 +6,43 @@
              x:Class="ChartAxisDemo.MainPage">
 
     <Grid>
-        <chart:SfCartesianChart Title="Axis elements customization">
+        <chart:SfCartesianChart Title="Sneakers sold by brand" Margin="20">
             <chart:SfCartesianChart.BindingContext>
                 <viewModel:ViewModel />
             </chart:SfCartesianChart.BindingContext>
 
             <chart:SfCartesianChart.Resources>
-                <chart:ChartAxisLabelStyle x:Key="axisLableStyle" TextColor="Red"/>
-                <chart:ChartLineStyle x:Key="axisLineStyle" Stroke="Yellow" />
-                <chart:ChartLineStyle x:Key="majorLineStyle" Stroke="Brown"/>
-                <chart:ChartAxisTickStyle x:Key="majorTickStyle" Stroke="Brown"/>
-                <chart:ChartLineStyle x:Key="minorLineStyle" Stroke="Gray"/>
-                <chart:ChartAxisTickStyle x:Key="minorTickStyle" Stroke="Gray"/>
+                <chart:ChartAxisLabelStyle x:Key="xAxisLableStyle" TextColor="Red"/>
+                <chart:ChartAxisLabelStyle x:Key="yAxisLableStyle" TextColor="Blue"/>
+                <chart:ChartLineStyle x:Key="majorLineStyle" Stroke="Gray"/>
+                <chart:ChartAxisTickStyle x:Key="majorTickStyle" Stroke="Gray"/>
+                <chart:ChartLineStyle x:Key="minorLineStyle" Stroke="Gray" StrokeDashArray="2 2"/>
             </chart:SfCartesianChart.Resources>
 
             <chart:SfCartesianChart.XAxes>
-                <chart:CategoryAxis AxisLineStyle="{StaticResource axisLineStyle}"
-                                    LabelStyle="{StaticResource axisLableStyle}"
-                                    MajorGridLineStyle="{StaticResource majorLineStyle}"
-                                    MajorTickStyle="{StaticResource majorTickStyle}" />
+                <chart:CategoryAxis LabelStyle="{StaticResource xAxisLableStyle}"
+                                    ShowMajorGridLines="False">
+                    <chart:CategoryAxis.Title>
+                        <chart:ChartAxisTitle Text="Brand" TextColor="Red"/>
+                    </chart:CategoryAxis.Title>
+                </chart:CategoryAxis>
             </chart:SfCartesianChart.XAxes>
 
             <chart:SfCartesianChart.YAxes>
-                <chart:NumericalAxis MinorTicksPerInterval="2"
+                <chart:NumericalAxis MinorTicksPerInterval="1"
                                      Minimum="0"
-                                     AxisLineStyle="{StaticResource axisLineStyle}"
-                                     LabelStyle="{StaticResource axisLableStyle}"
+                                     LabelStyle="{StaticResource yAxisLableStyle}"
                                      MajorGridLineStyle="{StaticResource majorLineStyle}"
-                                     MajorTickStyle="{StaticResource majorTickStyle}" 
-                                     MinorGridLineStyle="{StaticResource minorLineStyle}"
-                                     MinorTickStyle="{StaticResource minorTickStyle}" />
+                                     MajorTickStyle="{StaticResource majorTickStyle}"
+                                     MinorGridLineStyle="{StaticResource minorLineStyle}">
+                    <chart:NumericalAxis.Title>
+                        <chart:ChartAxisTitle Text="Number of items sold" TextColor="Blue"/>
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
 
-            <chart:SplineSeries XBindingPath="XValue"
-                                YBindingPath="YValue"
+            <chart:ColumnSeries XBindingPath="Brand"
+                                YBindingPath="ItemsCount"
                                 ItemsSource="{Binding Data}"/>
 
         </chart:SfCartesianChart>

@@ -12,32 +12,35 @@ The MAUI Cartesian chart provides support to customize the color of axis element
     </chart:SfCartesianChart.BindingContext>
 
     <chart:SfCartesianChart.Resources>
-        <chart:ChartAxisLabelStyle x:Key="axisLableStyle" TextColor="Red"/>
-        <chart:ChartLineStyle x:Key="axisLineStyle" Stroke="Yellow" />
-        <chart:ChartLineStyle x:Key="majorLineStyle" Stroke="Brown"/>
-        <chart:ChartAxisTickStyle x:Key="majorTickStyle" Stroke="Brown"/>
-        <chart:ChartLineStyle x:Key="minorLineStyle" Stroke="Gray"/>
-        <chart:ChartAxisTickStyle x:Key="minorTickStyle" Stroke="Gray"/>
+        <chart:ChartAxisLabelStyle x:Key="xAxisLableStyle" TextColor="Red"/>
+        <chart:ChartAxisLabelStyle x:Key="yAxisLableStyle" TextColor="Blue"/>
+        <chart:ChartLineStyle x:Key="majorLineStyle" Stroke="Gray"/>
+        <chart:ChartAxisTickStyle x:Key="majorTickStyle" Stroke="Gray"/>
+        <chart:ChartLineStyle x:Key="minorLineStyle" Stroke="Gray" StrokeDashArray="2 2"/>
     </chart:SfCartesianChart.Resources>
 
     <chart:SfCartesianChart.XAxes>
-        <chart:CategoryAxis  AxisLineStyle="{StaticResource axisLineStyle}"
-                                              LabelStyle="{StaticResource axisLableStyle}"
-                                              MajorGridLineStyle="{StaticResource majorLineStyle}"
-                                              MajorTickStyle="{StaticResource majorTickStyle}" />
+           <chart:CategoryAxis LabelStyle="{StaticResource xAxisLableStyle}"
+                               ShowMajorGridLines="False">
+          <chart:CategoryAxis.Title>
+               <chart:ChartAxisTitle Text="Brand" TextColor="Red"/>
+          </chart:CategoryAxis.Title>
+      </chart:CategoryAxis>
     </chart:SfCartesianChart.XAxes>
 
     <chart:SfCartesianChart.YAxes>
-        <chart:NumericalAxis MinorTicksPerInterval="2"
-                                               AxisLineStyle="{StaticResource axisLineStyle}"
-                                               LabelStyle="{StaticResource axisLableStyle}"
-                                               MajorGridLineStyle="{StaticResource majorLineStyle}"
-                                               MajorTickStyle="{StaticResource majorTickStyle}"
-                                               MinorGridLineStyle="{StaticResource minorLineStyle}"
-                                               MinorTickStyle="{StaticResource minorTickStyle}"  />
+            <chart:NumericalAxis MinorTicksPerInterval="1"
+                                 LabelStyle="{StaticResource yAxisLableStyle}"
+                                 MajorGridLineStyle="{StaticResource majorLineStyle}
+                                 MajorTickStyle="{StaticResource majorTickStyle}"
+                                 MinorGridLineStyle="{StaticResource minorLineStyle}">
+                <chart:NumericalAxis.Title>
+                    <chart:ChartAxisTitle Text="Number of items sold" TextColor="Blue"/>
+                </chart:NumericalAxis.Title>
+            </chart:NumericalAxis>/>
     </chart:SfCartesianChart.YAxes>
 
-    <chart:SplineSeries XBindingPath="XValue"
+    <chart:ColumnSeries XBindingPath="XValue"
                         YBindingPath="YValue"
                         ItemsSource="{Binding Data}"/>
 
@@ -50,48 +53,47 @@ var chart = new SfCartesianChart();
 ViewModel viewModel = new ViewModel();
 
 //Initializing new style for the axis line, grid lines, tick lines and labels.
-var axisLableStyle = new ChartAxisLabelStyle { TextColor = Colors.Red };
-var axisLineStyle = new ChartLineStyle { Stroke = Colors.Yellow };
-var majorLineStyle = new ChartLineStyle { Stroke = Colors.Brown };
-var minorLineStyle = new ChartLineStyle { Stroke = Colors.Gray };
-var majorTickStyle = new ChartAxisTickStyle { Stroke = Colors.Brown };
-var minorTickStyle = new ChartAxisTickStyle { Stroke = Colors.Gray };
+var xAxisLableStyle = new ChartAxisLabelStyle { TextColor = Colors.Red };
+var yAxisLableStyle = new ChartAxisLabelStyle { TextColor = Colors.Blue };
+var majorLineStyle = new ChartLineStyle { Stroke = Colors.Gray };
+var minorLineStyle = new ChartLineStyle { Stroke = Colors.Gray, StrokeDashArray = new DoubleCollection() { 2, 2 } };
+var majorTickStyle = new ChartAxisTickStyle { Stroke = Colors.Gray };
+var xAxisTitle = new ChartAxisTitle() { Text = "Brand", TextColor = Colors.Red,};
+var yAxisTitle = new ChartAxisTitle() { Text = " Number of items sold", TextColor = Colors.Blue,};
 
 //Initializing XAxes
 var xAxis = new CategoryAxis()
 {
-	LabelStyle = axisLableStyle,
-	AxisLineStyle = axisLineStyle,
-	MajorGridLineStyle = majorLineStyle,
-	MajorTickStyle = majorTickStyle,
+	LabelStyle = xAxisLableStyle,
+    Title = xAxisTitle,
+    ShowMajorGridLines = false,
 };
 chart.XAxes.Add(xAxis);
 
 //Initializing YAxes
 var yAxis = new NumericalAxis()
 {
-              MinorTicksPerInterval = 2,
-	LabelStyle = axisLableStyle,
-	AxisLineStyle = axisLineStyle,
+    MinorTicksPerInterval = 2,
+	LabelStyle = yAxisLableStyle,
 	MajorGridLineStyle = majorLineStyle,
 	MinorGridLineStyle = minorLineStyle,
 	MajorTickStyle = majorTickStyle,
-	MinorTickStyle = minorTickStyle,
+    Title = yAxisTitle,
 };
 chart.YAxes.Add(yAxis);
 
-var series = new SplineSeries()
+var series = new ColumnSeries()
 {
-	ItemsSource = viewModel.Data,
-	XBindingPath = "XValue",
-	YBindingPath = "YValue",
+    ItemsSource = viewModel.Data,
+    XBindingPath = "XValue",
+    YBindingPath = "YValue",
 };
 
 chart.Series.Add(series);
 
 ```
 
-![Axis elements customization](https://user-images.githubusercontent.com/61832185/199484950-6b067835-2313-49ca-9829-8f264c1344e4.png)
+![Axis elements customization](https://user-images.githubusercontent.com/61832185/201011516-954e603f-eb74-42ee-812c-e3ca0a376813.png)
 
 This user guide [Documentation](https://help.syncfusion.com/maui/cartesian-charts/getting-started) helps you to acquire more knowledge on the MAUI cartesian charts and their features. You can also refer to the [Feature Tour](https://www.syncfusion.com/maui-controls/maui-charts) site to get an overview of all the features in the   chart.
 
