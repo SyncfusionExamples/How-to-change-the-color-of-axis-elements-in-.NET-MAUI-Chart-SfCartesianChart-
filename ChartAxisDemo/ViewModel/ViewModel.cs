@@ -14,16 +14,20 @@ namespace ChartAxisDemo
 		public ViewModel()
 		{
 			Data = new ObservableCollection<Model>();
-			Data.Add(new Model() { Brand = "Adidas", ItemsCount = 416 });
-			Data.Add(new Model() { Brand = "Nike", ItemsCount = 520 });
-			Data.Add(new Model() { Brand = "Reebok", ItemsCount = 470 });
-			Data.Add(new Model() { Brand = "Fila", ItemsCount = 500 });
-			Data.Add(new Model() { Brand = "Puma", ItemsCount = 449 });
-			Data.Add(new Model() { Brand = "New Balance", ItemsCount = 360 });
-			Data.Add(new Model() { Brand = "Asics", ItemsCount = 437 });
-			Data.Add(new Model() { Brand = "Skechers", ItemsCount = 458 });
-			Data.Add(new Model() { Brand = "Bata", ItemsCount = 500 });
-			Data.Add(new Model() { Brand = "Burberry", ItemsCount = 473 });
+			var random = new Random();
+			var randomSpeed = new List<double>() { 1000, 1100, 1500, 2000, 2100, 2200 };
+			var randomPressure = new List<double>() { 74, 77, 78, 79, 80, 82 };
+			DateTime date = new DateTime(2000, 1, 1, 7, 0, 0);
+			for (int i = 0; i < 100; i++)
+			{
+				Data.Add(new Model()
+				{
+					Time = date,
+					Speed = randomSpeed[random.Next(0, 5)],
+					Pressure = randomPressure[random.Next(0, 5)],
+				});
+				date = date.AddMinutes(10);
+			}
 		}
 	}
 }
