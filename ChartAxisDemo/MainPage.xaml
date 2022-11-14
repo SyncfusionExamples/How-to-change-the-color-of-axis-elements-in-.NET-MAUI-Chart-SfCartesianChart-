@@ -6,44 +6,68 @@
              x:Class="ChartAxisDemo.MainPage">
 
     <Grid>
-        <chart:SfCartesianChart Title="Sneakers sold by brand" Margin="20">
+        <chart:SfCartesianChart Margin="20">
             <chart:SfCartesianChart.BindingContext>
                 <viewModel:ViewModel />
             </chart:SfCartesianChart.BindingContext>
 
+            <!--Initializing new style for the axis line, grid lines, tick lines and labels.-->
             <chart:SfCartesianChart.Resources>
-                <chart:ChartAxisLabelStyle x:Key="xAxisLableStyle" TextColor="Red"/>
-                <chart:ChartAxisLabelStyle x:Key="yAxisLableStyle" TextColor="Blue"/>
+                <chart:ChartAxisLabelStyle x:Key="xAxisLableStyle" LabelFormat="HH"/>
+                <chart:ChartAxisLabelStyle x:Key="yAxis1LableStyle" TextColor="Blue" LabelFormat="0rpm"/>
+                <chart:ChartAxisLabelStyle x:Key="yAxis2LableStyle" TextColor="Green" LabelFormat="0psi"/>
                 <chart:ChartLineStyle x:Key="majorLineStyle" Stroke="Gray"/>
                 <chart:ChartAxisTickStyle x:Key="majorTickStyle" Stroke="Gray"/>
                 <chart:ChartLineStyle x:Key="minorLineStyle" Stroke="Gray" StrokeDashArray="2 2"/>
+                <chart:ChartLineStyle x:Key="yAxis1LineStyle" Stroke="Blue"/>
+                <chart:ChartLineStyle x:Key="yAxis2LineStyle" Stroke="Green"/>
             </chart:SfCartesianChart.Resources>
 
+            <chart:SfCartesianChart.Legend>
+                <chart:ChartLegend />
+            </chart:SfCartesianChart.Legend>
+
             <chart:SfCartesianChart.XAxes>
-                <chart:CategoryAxis LabelStyle="{StaticResource xAxisLableStyle}"
-                                    ShowMajorGridLines="False">
-                    <chart:CategoryAxis.Title>
-                        <chart:ChartAxisTitle Text="Brand" TextColor="Red"/>
-                    </chart:CategoryAxis.Title>
-                </chart:CategoryAxis>
+                <chart:DateTimeAxis ShowMajorGridLines="False"
+                                    Interval="1" IntervalType="Hours"
+                                    LabelStyle="{StaticResource xAxisLableStyle}" >
+                    <chart:DateTimeAxis.Title>
+                        <chart:ChartAxisTitle Text="Time in hours" />
+                    </chart:DateTimeAxis.Title>
+                </chart:DateTimeAxis>
             </chart:SfCartesianChart.XAxes>
 
             <chart:SfCartesianChart.YAxes>
-                <chart:NumericalAxis MinorTicksPerInterval="1"
-                                     Minimum="0"
-                                     LabelStyle="{StaticResource yAxisLableStyle}"
+                <chart:NumericalAxis Name="yAxis1" MinorTicksPerInterval="1"
+                                     Minimum="0" Maximum="6000" Interval="1000"
+                                     LabelStyle="{StaticResource yAxis1LableStyle}"
                                      MajorGridLineStyle="{StaticResource majorLineStyle}"
                                      MajorTickStyle="{StaticResource majorTickStyle}"
-                                     MinorGridLineStyle="{StaticResource minorLineStyle}">
-                    <chart:NumericalAxis.Title>
-                        <chart:ChartAxisTitle Text="Number of items sold" TextColor="Blue"/>
-                    </chart:NumericalAxis.Title>
+                                     MinorGridLineStyle="{StaticResource minorLineStyle}"
+                                     AxisLineStyle="{StaticResource yAxis1LineStyle}">
+                </chart:NumericalAxis>
+
+                <chart:NumericalAxis Name="yAxis2"
+                                     Minimum="55" Maximum="85" Interval="5" 
+                                     AxisLineStyle="{StaticResource yAxis2LineStyle}"
+                                     LabelStyle="{StaticResource yAxis2LableStyle}"
+                                     ShowMajorGridLines="False"
+                                     CrossesAt="{Static x:Double.MaxValue}">
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
 
-            <chart:ColumnSeries XBindingPath="Brand"
-                                YBindingPath="ItemsCount"
-                                ItemsSource="{Binding Data}"/>
+            <chart:LineSeries ItemsSource="{Binding Data}"
+                                  XBindingPath="Time"
+                                  YBindingPath="Speed"
+                                  Label="Speed"
+                                  Fill="Blue" />
+
+            <chart:SplineSeries ItemsSource="{Binding Data}"
+                                    XBindingPath="Time" 
+                                    YBindingPath="Pressure" 
+                                    Label="Pressure"
+                                    Fill="Green"
+                                    YAxisName="yAxis2"/>
 
         </chart:SfCartesianChart>
     </Grid>

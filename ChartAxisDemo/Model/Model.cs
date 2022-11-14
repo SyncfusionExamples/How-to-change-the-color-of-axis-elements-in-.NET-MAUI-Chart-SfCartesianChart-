@@ -8,8 +8,10 @@ namespace ChartAxisDemo
 {
 	public class Model
 	{
-		public string Brand { get; set; }
+		public DateTime Time { get; set; }
 
-		public double ItemsCount { get; set; }
+		public double Speed { get; set; }
+
+		public double Pressure { get; set; }
 	}
 }
