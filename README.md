@@ -1,4 +1,4 @@
-# How to change the color of axis elements in .NET MAUI Chart SfCartesianChart
+# How to change the color of axis elements in .NET MAUI Chart (SfCartesianChart)
 
 This article explains how to change the color of the axis elements in the [.NET MAUI charts](https://www.syncfusion.com/maui-controls/maui-charts).
 
