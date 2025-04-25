@@ -29,8 +29,8 @@
 
             <chart:SfCartesianChart.XAxes>
                 <chart:DateTimeAxis ShowMajorGridLines="False"
-                                    Interval="1" IntervalType="Hours"
-                                    LabelStyle="{StaticResource xAxisLableStyle}" >
+                                Interval="1" IntervalType="Hours"
+                                LabelStyle="{StaticResource xAxisLableStyle}" >
                     <chart:DateTimeAxis.Title>
                         <chart:ChartAxisTitle Text="Time in hours" />
                     </chart:DateTimeAxis.Title>
@@ -39,37 +39,37 @@
 
             <chart:SfCartesianChart.YAxes>
                 <chart:NumericalAxis Name="yAxis1" MinorTicksPerInterval="1"
-                                     Minimum="0" Maximum="6000" Interval="1000"
-                                     LabelStyle="{StaticResource yAxis1LableStyle}"
-                                     MajorGridLineStyle="{StaticResource majorLineStyle}"
-                                     MajorTickStyle="{StaticResource majorTickStyle}"
-                                     MinorGridLineStyle="{StaticResource minorLineStyle}"
-                                     AxisLineStyle="{StaticResource yAxis1LineStyle}">
+                                 Minimum="0" Maximum="6000" Interval="1000"
+                                 LabelStyle="{StaticResource yAxis1LableStyle}"
+                                 MajorGridLineStyle="{StaticResource majorLineStyle}"
+                                 MajorTickStyle="{StaticResource majorTickStyle}"
+                                 MinorGridLineStyle="{StaticResource minorLineStyle}"
+                                 AxisLineStyle="{StaticResource yAxis1LineStyle}">
                 </chart:NumericalAxis>
 
                 <chart:NumericalAxis Name="yAxis2"
-                                     Minimum="55" Maximum="85" Interval="5" 
-                                     AxisLineStyle="{StaticResource yAxis2LineStyle}"
-                                     LabelStyle="{StaticResource yAxis2LableStyle}"
-                                     ShowMajorGridLines="False"
-                                     CrossesAt="{Static x:Double.MaxValue}">
+                                 Minimum="55" Maximum="85" Interval="5" 
+                                 AxisLineStyle="{StaticResource yAxis2LineStyle}"
+                                 LabelStyle="{StaticResource yAxis2LableStyle}"
+                                 ShowMajorGridLines="False"
+                                 CrossesAt="{Static x:Double.MaxValue}">
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
 
             <chart:LineSeries ItemsSource="{Binding Data}"
-                                  XBindingPath="Time"
-                                  YBindingPath="Speed"
-                                  Label="Speed"
-                                  Fill="Blue" />
+                              XBindingPath="Time"
+                              YBindingPath="Speed"
+                              Label="Speed"
+                              Fill="Blue" />
 
             <chart:SplineSeries ItemsSource="{Binding Data}"
-                                    XBindingPath="Time" 
-                                    YBindingPath="Pressure" 
-                                    Label="Pressure"
-                                    Fill="Green"
-                                    YAxisName="yAxis2"/>
+                                XBindingPath="Time" 
+                                YBindingPath="Pressure" 
+                                Label="Pressure"
+                                Fill="Green"
+                                YAxisName="yAxis2"/>
 
         </chart:SfCartesianChart>
     </Grid>
-
+    
 </ContentPage>

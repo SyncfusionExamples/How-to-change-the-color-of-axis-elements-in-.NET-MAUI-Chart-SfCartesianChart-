@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31611.283
+VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartAxisDemo", "ChartAxisDemo.csproj", "{52894750-6BC3-4938-B901-3AC7D8BAB8F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartAxisDemo", "ChartAxisDemo.csproj", "{2DE70760-A072-4E3F-8D90-4E93F746BE0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,17 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{52894750-6BC3-4938-B901-3AC7D8BAB8F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52894750-6BC3-4938-B901-3AC7D8BAB8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52894750-6BC3-4938-B901-3AC7D8BAB8F2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{52894750-6BC3-4938-B901-3AC7D8BAB8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52894750-6BC3-4938-B901-3AC7D8BAB8F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52894750-6BC3-4938-B901-3AC7D8BAB8F2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2DE70760-A072-4E3F-8D90-4E93F746BE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE70760-A072-4E3F-8D90-4E93F746BE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE70760-A072-4E3F-8D90-4E93F746BE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE70760-A072-4E3F-8D90-4E93F746BE0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+		SolutionGuid = {047A8563-AD1A-46B3-B687-6097F0A13D7D}
 	EndGlobalSection
 EndGlobal
