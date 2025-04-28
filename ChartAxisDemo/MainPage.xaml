@@ -57,19 +57,19 @@
             </chart:SfCartesianChart.YAxes>
 
             <chart:LineSeries ItemsSource="{Binding Data}"
-                                  XBindingPath="Time"
-                                  YBindingPath="Speed"
-                                  Label="Speed"
-                                  Fill="Blue" />
+                              XBindingPath="Time"
+                              YBindingPath="Speed"
+                              Label="Speed"
+                              Fill="Blue" />
 
             <chart:SplineSeries ItemsSource="{Binding Data}"
-                                    XBindingPath="Time" 
-                                    YBindingPath="Pressure" 
-                                    Label="Pressure"
-                                    Fill="Green"
-                                    YAxisName="yAxis2"/>
+                                XBindingPath="Time" 
+                                YBindingPath="Pressure" 
+                                Label="Pressure"
+                                Fill="Green"
+                                YAxisName="yAxis2"/>
 
         </chart:SfCartesianChart>
     </Grid>
-
+    
 </ContentPage>
